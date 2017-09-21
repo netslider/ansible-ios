@@ -1,0 +1,18 @@
+---
+- name: Perform general IOS configuration tasks...
+  hosts: (your_hosts)
+  serial: 5
+  gather_facts: no
+  connection: local
+  vars:
+    cli:
+      host: "{{ ansible_host }}"
+      username: "{{ ansible_ssh_user }}"
+      password: "{{ ansible_ssh_pass }}"
+      timeout: 600
+    ntp_servers:
+      - x.x.x.x
+      - y.y.y.y
+
+  roles:
+   - ios
